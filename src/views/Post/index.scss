@@ -1,0 +1,113 @@
+#post {
+  article {
+    position: relative;
+    overflow: unset;
+    @include card;
+
+    .post-header {
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px 3px 0 0;
+
+      .wrapper {
+        transition: transform 0.5s ease-out;
+      }
+
+      &:hover {
+        .wrapper {
+          transform: scale(1.04);
+        }
+      }
+
+      .post-head {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: $bg-white-dim;
+        box-shadow: 0 -1px 2px $bg-dark;
+
+        @include pc-layout {
+          padding: $card-padding;
+          height: 80px;
+        }
+        @include sp-layout {
+          padding: $card-padding-small;
+          height: 60px;
+        }
+
+        .post-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @include pc-layout {
+            height: 34px;
+          }
+          @include sp-layout {
+            height: 24px;
+          }
+
+          h1,
+          span {
+            @include clip;
+          }
+
+          h1 {
+            font-weight: $font-weight-normal;
+            @include sp-layout {
+              font-size: $font-size-larger;
+            }
+          }
+        }
+
+        .post-meta {
+          display: flex;
+          @include clip;
+          @include pc-layout {
+            margin-top: 8px;
+          }
+          @include sp-layout {
+            margin-top: 4px;
+          }
+
+          & > span {
+            display: flex;
+            align-items: center;
+            margin-right: 12px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            &,
+            span,
+            .icon {
+              color: white;
+            }
+
+            span {
+              padding-right: 6px;
+              &:last-child {
+                padding-right: 0;
+              }
+            }
+
+            .icon {
+              margin-right: 4px;
+            }
+            .icon-fire {
+              margin-top: -2px;
+            }
+            .icon::before {
+              display: unset;
+            }
+          }
+        }
+      }
+    }
+
+    .post-body {
+      padding: 25px 0;
+    }
+  }
+}
